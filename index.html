@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagamento PIX</title>
+
+<style>
+    /* Fundo em degrade animado */
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Poppins", Arial, sans-serif;
+        background: linear-gradient(-45deg, #dbe4ff, #e7f1ff, #f0eaff, #e6f7ff);
+        background-size: 400% 400%;
+        animation: gradient 18s ease infinite;
+        text-align: center;
+        color: #222;
+    }
+
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .container {
+        width: 88%;
+        max-width: 420px;
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(12px);
+        border-radius: 18px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .valor {
+        font-size: 3.3rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #2f3bff;
+        animation: pulse 2.8s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .texto-pix {
+        font-size: 1rem;
+        margin-bottom: 25px;
+        color: #444;
+    }
+
+    button {
+        width: 100%;
+        padding: 16px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+        transition: 0.25s;
+        background: linear-gradient(45deg, #5168ff, #7384ff);
+        margin-top: 12px;
+    }
+
+    button:hover {
+        filter: brightness(1.08);
+    }
+
+    .aviso {
+        font-size: 0.8rem;
+        color: #555;
+        margin-top: 25px;
+        margin-bottom: -4px;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="valor">R$ 15,00</div>
+
+    <div class="texto-pix">
+        Chave PIX: <b>pagamentovip10@gmail.com</b>
+    </div>
+
+    <button onclick="copiarPix()">📋 Copiar chave PIX</button>
+
+    <div class="aviso">Envie o comprovante clicando no botão abaixo após o pagamento</div>
+
+    <a href="https://wa.me/SEUNUMEROAQUI?text=Olá,+segue+o+comprovante+do+pagamento."
+       style="text-decoration:none;">
+        <button>📨 Enviar comprovante</button>
+    </a>
+</div>
+
+<script>
+function copiarPix() {
+    const chave = "pagamentovip10@gmail.com";
+    navigator.clipboard.writeText(chave)
+        .then(() => alert("Chave PIX copiada!"))
+        .catch(() => alert("Erro ao copiar a chave."));
+}
+</script>
+
+</body>
+</html>
