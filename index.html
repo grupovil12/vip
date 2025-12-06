@@ -11,6 +11,7 @@
         padding: 0;
         height: 100vh;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         font-family: "Poppins", Arial, sans-serif;
@@ -25,6 +26,15 @@
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
+    }
+
+    .titulo-topo {
+        font-size: 3.5rem;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 25px;
+        color: #2f3bff;
+        text-shadow: 0 0 12px rgba(80, 90, 255, 0.35);
     }
 
     .container {
@@ -51,9 +61,24 @@
         100% { transform: scale(1); opacity: 1; }
     }
 
+    /* Fundo suave animado atrás da chave PIX */
+    .area-pix {
+        margin-top: 18px;
+        padding: 15px;
+        border-radius: 12px;
+        animation: fundoMudando 10s infinite alternate;
+        background: linear-gradient(45deg, #ffffffb0, #e6eeffb0, #ffeefeaa);
+        background-size: 300% 300%;
+    }
+
+    @keyframes fundoMudando {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
     .texto-pix {
         font-size: 1rem;
-        margin-bottom: 10px;
         color: #444;
     }
 
@@ -94,18 +119,22 @@
 </head>
 <body>
 
+<div class="titulo-topo">GRUPO VIP</div>
+
 <div class="container">
 
     <div class="valor">R$ 15,00</div>
 
-    <div class="texto-pix">
-        Chave PIX: <b>pagamentovip10@gmail.com</b>
+    <button onclick="copiarPix()">📋 Copiar chave PIX</button>
+
+    <!-- Chave PIX movida para baixo e com fundo animado -->
+    <div class="area-pix">
+        <div class="texto-pix">
+            Chave PIX: <b>pagamentovip10@gmail.com</b>
+        </div>
     </div>
 
-    <!-- Mensagem discreta -->
     <div id="mensagem-copiado"></div>
-
-    <button onclick="copiarPix()">📋 Copiar chave PIX</button>
 
     <div class="aviso">Envie o comprovante clicando no botão abaixo após o pagamento</div>
 
