@@ -6,7 +6,6 @@
 <title>Pagamento PIX</title>
 
 <style>
-    /* Fundo em degrade animado */
     body {
         margin: 0;
         padding: 0;
@@ -54,8 +53,17 @@
 
     .texto-pix {
         font-size: 1rem;
-        margin-bottom: 25px;
+        margin-bottom: 10px;
         color: #444;
+    }
+
+    #mensagem-copiado {
+        font-size: 0.85rem;
+        color: green;
+        opacity: 0;
+        transition: 0.4s;
+        height: 18px;
+        margin-bottom: 20px;
     }
 
     button {
@@ -82,7 +90,6 @@
         margin-top: 25px;
         margin-bottom: -4px;
     }
-
 </style>
 </head>
 <body>
@@ -95,12 +102,14 @@
         Chave PIX: <b>pagamentovip10@gmail.com</b>
     </div>
 
+    <!-- Mensagem discreta -->
+    <div id="mensagem-copiado"></div>
+
     <button onclick="copiarPix()">📋 Copiar chave PIX</button>
 
     <div class="aviso">Envie o comprovante clicando no botão abaixo após o pagamento</div>
 
-    <a href="https://wa.me/SEUNUMEROAQUI?text=Olá,+segue+o+comprovante+do+pagamento."
-       style="text-decoration:none;">
+    <a href="https://t.me/Adm_vip346" style="text-decoration:none;">
         <button>📨 Enviar comprovante</button>
     </a>
 </div>
@@ -109,8 +118,25 @@
 function copiarPix() {
     const chave = "pagamentovip10@gmail.com";
     navigator.clipboard.writeText(chave)
-        .then(() => alert("Chave PIX copiada!"))
-        .catch(() => alert("Erro ao copiar a chave."));
+        .then(() => {
+            let msg = document.getElementById("mensagem-copiado");
+            msg.innerText = "Chave PIX copiada com sucesso!";
+            msg.style.opacity = 1;
+
+            setTimeout(() => {
+                msg.style.opacity = 0;
+            }, 2500);
+        })
+        .catch(() => {
+            let msg = document.getElementById("mensagem-copiado");
+            msg.innerText = "Erro ao copiar a chave.";
+            msg.style.color = "red";
+            msg.style.opacity = 1;
+
+            setTimeout(() => {
+                msg.style.opacity = 0;
+            }, 2500);
+        });
 }
 </script>
 
