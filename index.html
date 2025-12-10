@@ -31,12 +31,13 @@
     }
 
     .titulo-topo {
-        font-size: 3.8rem;
+        font-size: 6rem;
         font-weight: 900;
         margin-bottom: 20px;
         color: #ff69b4;
-        text-shadow: 0 0 20px rgba(255, 105, 180, 0.7);
-        letter-spacing: 2px;
+        text-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
+        letter-spacing: 3px;
+        line-height: 1;
     }
 
     .container {
@@ -51,11 +52,20 @@
     }
 
     .valor {
-        font-size: 3.8rem;
-        font-weight: 800;
+        font-size: 4.5rem;
+        font-weight: 900;
         margin: 15px 0;
         color: #ff69b4;
-        text-shadow: 0 0 15px #ff1493;
+        text-shadow: 0 0 20px #ff1493;
+
+        /* PULSO MAIS DEVAGAR E SUAVE */
+        animation: pulseValor 2.8s infinite ease-in-out;
+    }
+
+    @keyframes pulseValor {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.18); }
+        100% { transform: scale(1); }
     }
 
     .area-pix {
@@ -117,11 +127,12 @@
     }
 
     .aviso {
-        font-size: 1.15rem;
+        font-size: 0.95rem; /* DIMINUÍDO PARA NÃO SAIR DA PÁGINA */
         color: #ffebf4;
         margin-top: 25px;
         font-weight: 700;
         text-shadow: 0 0 10px #ff69b4, 0 0 18px #ff1493;
+        white-space: nowrap; /* continua tudo em uma linha */
     }
 </style>
 </head>
