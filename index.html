@@ -6,138 +6,142 @@
 <title>Grupo VIP</title>
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-family: "Poppins", Arial, sans-serif;
-        text-align: center;
-        color: #fff;
-
-        background: linear-gradient(-45deg, #0f0f14, #1a1a24, #141420, #0c0c12);
-        background-size: 400% 400%;
-        animation: fundoSuave 20s ease-in-out infinite;
+    :root {
+        --vermelho: #b11226;
+        --vermelho-claro: #e01b3c;
+        --roxo-escuro: #2a0f3f;
+        --dourado: #FFD700;
+        --bg-1: #09090f;
+        --bg-2: #140b1f;
+        --card: rgba(18, 14, 28, 0.9);
     }
 
-    @keyframes fundoSuave {
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: "Poppins", system-ui, Arial, sans-serif;
+        color: #fff;
+
+        background: linear-gradient(-45deg, var(--bg-1), var(--roxo-escuro), var(--bg-2));
+        background-size: 300% 300%;
+        animation: fundo 18s ease infinite;
+    }
+
+    @keyframes fundo {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
     }
 
+    /* TÍTULO DOURADO PREMIUM */
     .titulo-topo {
-        font-size: 4.8rem;
+        font-size: 4.6rem;
         font-weight: 900;
-
-        /* SUBINDO O TEXTO */
-        margin-top: -40px;
-        margin-bottom: 25px;
-
-        color: #FFD700;
+        letter-spacing: 3px;
+        margin: -40px 0 28px;
+        color: var(--dourado);
+        text-align: center;
         text-shadow:
             0 0 10px rgba(255, 215, 0, 0.7),
-            0 0 20px rgba(255, 215, 0, 0.6),
-            0 0 35px rgba(255, 215, 0, 0.5);
-
-        letter-spacing: 3px;
-        line-height: 1;
+            0 0 22px rgba(255, 215, 0, 0.6),
+            0 0 40px rgba(255, 215, 0, 0.45),
+            0 0 60px rgba(255, 215, 0, 0.3);
     }
 
     .container {
         width: 90%;
-        max-width: 440px;
-        padding: 30px;
-        background: rgba(0, 0, 0, 0.55);
-        backdrop-filter: blur(15px);
+        max-width: 420px;
+        background: var(--card);
         border-radius: 20px;
-        box-shadow: 0 12px 30px rgba(255, 105, 180, 0.35);
-        border: 2px solid #ff69b4;
+        padding: 28px;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+        animation: subir 0.8s ease;
+    }
+
+    @keyframes subir {
+        from { opacity: 0; transform: translateY(28px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     .valor {
-        font-size: 4.5rem;
+        font-size: 3.8rem;
         font-weight: 900;
-        margin: 15px 0;
-        color: #ff69b4;
-        text-shadow: 0 0 20px #ff1493;
-        animation: pulseValor 2.8s infinite ease-in-out;
+        color: var(--vermelho-claro);
+        text-align: center;
+        margin: 12px 0 25px;
+        animation: pulse 2.6s infinite ease-in-out;
     }
 
-    @keyframes pulseValor {
+    @keyframes pulse {
         0% { transform: scale(1); }
-        50% { transform: scale(1.18); }
+        50% { transform: scale(1.15); }
         100% { transform: scale(1); }
     }
 
     .area-pix {
-        margin: 25px 0 10px;
-        padding: 20px;
-        border-radius: 15px;
-        background: linear-gradient(45deg, #ff1493aa, #ff69b4aa, #c71585aa);
-        background-size: 300% 300%;
-        animation: fundoMudando 8s infinite alternate;
-        border: 2px dashed #ff69b4;
-    }
-
-    @keyframes fundoMudando {
-        0% { background-position: 0% 50%; }
-        100% { background-position: 100% 50%; }
+        padding: 18px;
+        border-radius: 14px;
+        background: linear-gradient(
+            135deg,
+            rgba(177, 18, 38, 0.18),
+            rgba(42, 15, 63, 0.2)
+        );
+        border: 1px solid rgba(224, 27, 60, 0.45);
+        margin-bottom: 18px;
     }
 
     .texto-pix {
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: #fff;
-    }
-
-    #mensagem-copiado {
-        font-size: 1rem;
-        color: #ff69b4;
-        opacity: 0;
-        transition: 0.5s;
-        height: 24px;
-        margin: 10px 0;
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: #f2f2f2;
+        word-break: break-all;
     }
 
     button {
         width: 100%;
-        padding: 18px;
-        border: none;
+        padding: 16px;
         border-radius: 12px;
-        font-size: 1.3rem;
+        border: none;
+        font-size: 1.15rem;
         font-weight: 700;
-        color: white;
         cursor: pointer;
-        transition: 0.3s;
-        background: linear-gradient(45deg, #ff1493, #ff69b4);
-        margin: 15px 0;
-        box-shadow: 0 6px 15px rgba(255, 20, 147, 0.5);
-        animation: pulseBotao 3s infinite alternate;
+        color: #fff;
+
+        background: linear-gradient(135deg, var(--vermelho), var(--vermelho-claro));
+        box-shadow: 0 10px 22px rgba(224, 27, 60, 0.35);
+        transition: 0.25s;
     }
 
-    @keyframes pulseBotao {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.02); }
-        100% { transform: scale(1); }
+    button + button {
+        margin-top: 12px;
     }
 
     button:hover {
-        transform: translateY(-3px) scale(1.02);
-        filter: brightness(1.15);
-        box-shadow: 0 10px 25px rgba(255, 20, 147, 0.7);
+        transform: translateY(-2px);
+        filter: brightness(1.12);
+        box-shadow: 0 16px 32px rgba(224, 27, 60, 0.55);
+    }
+
+    #mensagem-copiado {
+        text-align: center;
+        font-size: 0.95rem;
+        margin: 10px 0;
+        color: #ffb3c1;
+        opacity: 0;
+        transition: opacity 0.4s;
+        height: 18px;
     }
 
     .aviso {
-        font-size: 0.95rem;
-        color: #ffebf4;
-        margin-top: 25px;
-        font-weight: 700;
-        text-shadow: 0 0 10px #ff69b4, 0 0 18px #ff1493;
-        white-space: nowrap;
+        font-size: 0.85rem;
+        text-align: center;
+        color: #d2d2d8;
+        margin-top: 18px;
     }
 </style>
 </head>
@@ -160,32 +164,25 @@
 
     <div id="mensagem-copiado"></div>
 
-    <div class="aviso">
-        Após o pagamento, envie o comprovante para liberar o acesso.
-    </div>
-
     <a href="https://t.me/Adm_vip346" style="text-decoration:none;">
         <button>📨 Enviar comprovante</button>
     </a>
+
+    <div class="aviso">
+        Após o pagamento, envie o comprovante para liberar o acesso.
+    </div>
 
 </div>
 
 <script>
 function copiarPix() {
     const chave = "pagamentovip10@gmail.com";
-    navigator.clipboard.writeText(chave)
-        .then(() => {
-            let msg = document.getElementById("mensagem-copiado");
-            msg.innerText = "Chave copiada!";
-            msg.style.opacity = 1;
-            setTimeout(() => { msg.style.opacity = 0; }, 3000);
-        })
-        .catch(() => {
-            let msg = document.getElementById("mensagem-copiado");
-            msg.innerText = "Erro ao copiar.";
-            msg.style.opacity = 1;
-            setTimeout(() => { msg.style.opacity = 0; }, 3000);
-        });
+    navigator.clipboard.writeText(chave).then(() => {
+        const msg = document.getElementById("mensagem-copiado");
+        msg.innerText = "Chave copiada com sucesso!";
+        msg.style.opacity = 1;
+        setTimeout(() => msg.style.opacity = 0, 2500);
+    });
 }
 </script>
 
