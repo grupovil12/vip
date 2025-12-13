@@ -18,10 +18,10 @@
         text-align: center;
         color: #fff;
 
-        /* Degradê suave vermelho → roxo */
-        background: linear-gradient(-45deg, #ff1a1a, #7b00ff, #c200ff, #ff003c);
+        /* Fundo neutro e escuro */
+        background: linear-gradient(-45deg, #0f0f14, #1a1a24, #141420, #0c0c12);
         background-size: 400% 400%;
-        animation: fundoSuave 18s ease-in-out infinite;
+        animation: fundoSuave 20s ease-in-out infinite;
     }
 
     @keyframes fundoSuave {
@@ -31,17 +31,14 @@
     }
 
     .titulo-topo {
-        font-size: 4.8rem; /* ajustado para caber no celular */
+        font-size: 4.8rem;
         font-weight: 900;
         margin-bottom: 20px;
-
-        /* COR DOURADA */
         color: #FFD700;
         text-shadow:
             0 0 10px rgba(255, 215, 0, 0.7),
             0 0 20px rgba(255, 215, 0, 0.6),
             0 0 35px rgba(255, 215, 0, 0.5);
-
         letter-spacing: 3px;
         line-height: 1;
     }
@@ -50,10 +47,10 @@
         width: 90%;
         max-width: 440px;
         padding: 30px;
-        background: rgba(0, 0, 0, 0.45);
+        background: rgba(0, 0, 0, 0.55);
         backdrop-filter: blur(15px);
         border-radius: 20px;
-        box-shadow: 0 12px 30px rgba(255, 20, 147, 0.4);
+        box-shadow: 0 12px 30px rgba(255, 105, 180, 0.35);
         border: 2px solid #ff69b4;
     }
 
@@ -63,8 +60,6 @@
         margin: 15px 0;
         color: #ff69b4;
         text-shadow: 0 0 20px #ff1493;
-
-        /* Pulso mais devagar */
         animation: pulseValor 2.8s infinite ease-in-out;
     }
 
@@ -138,7 +133,7 @@
         margin-top: 25px;
         font-weight: 700;
         text-shadow: 0 0 10px #ff69b4, 0 0 18px #ff1493;
-        white-space: nowrap; /* uma linha só */
+        white-space: nowrap;
     }
 </style>
 </head>
@@ -161,7 +156,9 @@
 
     <div id="mensagem-copiado"></div>
 
-    <div class="aviso">Após o pagamento, envie o comprovante para liberar o acesso.</div>
+    <div class="aviso">
+        Após o pagamento, envie o comprovante para liberar o acesso.
+    </div>
 
     <a href="https://t.me/Adm_vip346" style="text-decoration:none;">
         <button>📨 Enviar comprovante</button>
@@ -177,14 +174,12 @@ function copiarPix() {
             let msg = document.getElementById("mensagem-copiado");
             msg.innerText = "Chave copiada!";
             msg.style.opacity = 1;
-
             setTimeout(() => { msg.style.opacity = 0; }, 3000);
         })
         .catch(() => {
             let msg = document.getElementById("mensagem-copiado");
             msg.innerText = "Erro ao copiar.";
             msg.style.opacity = 1;
-
             setTimeout(() => { msg.style.opacity = 0; }, 3000);
         });
 }
