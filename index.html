@@ -9,24 +9,20 @@
     :root {
         --vermelho: #b11226;
         --vermelho-claro: #e01b3c;
-        --roxo-escuro: #2a0f3f;
+        --roxo: #2a0f3f;
         --dourado: #FFD700;
         --bg-1: #09090f;
         --bg-2: #140b1f;
-        --card: rgba(18, 14, 28, 0.9);
     }
 
     body {
         margin: 0;
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
         font-family: "Poppins", system-ui, Arial, sans-serif;
         color: #fff;
+        text-align: center;
 
-        background: linear-gradient(-45deg, var(--bg-1), var(--roxo-escuro), var(--bg-2));
+        background: linear-gradient(-45deg, var(--bg-1), var(--roxo), var(--bg-2));
         background-size: 300% 300%;
         animation: fundo 18s ease infinite;
     }
@@ -37,43 +33,25 @@
         100% { background-position: 0% 50%; }
     }
 
-    /* TÍTULO DOURADO PREMIUM */
+    /* TÍTULO */
     .titulo-topo {
-        font-size: 4.6rem;
+        margin-top: 20px;
+        font-size: 4.2rem;
         font-weight: 900;
         letter-spacing: 3px;
-        margin: -40px 0 28px;
         color: var(--dourado);
-        text-align: center;
         text-shadow:
-            0 0 10px rgba(255, 215, 0, 0.7),
-            0 0 22px rgba(255, 215, 0, 0.6),
-            0 0 40px rgba(255, 215, 0, 0.45),
-            0 0 60px rgba(255, 215, 0, 0.3);
+            0 0 10px rgba(255,215,0,.7),
+            0 0 25px rgba(255,215,0,.6),
+            0 0 45px rgba(255,215,0,.4);
     }
 
-    .container {
-        width: 90%;
-        max-width: 420px;
-        background: var(--card);
-        border-radius: 20px;
-        padding: 28px;
-        backdrop-filter: blur(14px);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-        animation: subir 0.8s ease;
-    }
-
-    @keyframes subir {
-        from { opacity: 0; transform: translateY(28px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
+    /* PREÇO */
     .valor {
-        font-size: 3.8rem;
+        margin: 20px 0 25px;
+        font-size: 4rem;
         font-weight: 900;
         color: var(--vermelho-claro);
-        text-align: center;
-        margin: 12px 0 25px;
         animation: pulse 2.6s infinite ease-in-out;
     }
 
@@ -83,65 +61,61 @@
         100% { transform: scale(1); }
     }
 
+    /* ÁREA PIX */
     .area-pix {
+        margin: 0 16px 22px;
         padding: 18px;
         border-radius: 14px;
         background: linear-gradient(
             135deg,
-            rgba(177, 18, 38, 0.18),
-            rgba(42, 15, 63, 0.2)
+            rgba(177, 18, 38, 0.22),
+            rgba(42, 15, 63, 0.25)
         );
-        border: 1px solid rgba(224, 27, 60, 0.45);
-        margin-bottom: 18px;
+        border: 1px solid rgba(224, 27, 60, 0.5);
     }
 
     .texto-pix {
-        font-size: 1.05rem;
-        font-weight: 500;
-        color: #f2f2f2;
+        font-size: 1.1rem;
+        font-weight: 600;
         word-break: break-all;
     }
 
+    /* BOTÕES */
     button {
-        width: 100%;
-        padding: 16px;
-        border-radius: 12px;
+        width: calc(100% - 32px);
+        margin: 10px 16px;
+        padding: 18px;
+        border-radius: 14px;
         border: none;
-        font-size: 1.15rem;
+        font-size: 1.2rem;
         font-weight: 700;
         cursor: pointer;
         color: #fff;
 
         background: linear-gradient(135deg, var(--vermelho), var(--vermelho-claro));
-        box-shadow: 0 10px 22px rgba(224, 27, 60, 0.35);
+        box-shadow: 0 10px 22px rgba(224, 27, 60, 0.4);
         transition: 0.25s;
-    }
-
-    button + button {
-        margin-top: 12px;
     }
 
     button:hover {
         transform: translateY(-2px);
-        filter: brightness(1.12);
-        box-shadow: 0 16px 32px rgba(224, 27, 60, 0.55);
+        filter: brightness(1.1);
+        box-shadow: 0 16px 32px rgba(224, 27, 60, 0.6);
     }
 
     #mensagem-copiado {
-        text-align: center;
+        height: 20px;
+        margin-top: 6px;
         font-size: 0.95rem;
-        margin: 10px 0;
         color: #ffb3c1;
         opacity: 0;
         transition: opacity 0.4s;
-        height: 18px;
     }
 
     .aviso {
-        font-size: 0.85rem;
-        text-align: center;
-        color: #d2d2d8;
-        margin-top: 18px;
+        margin: 20px 16px 30px;
+        font-size: 0.9rem;
+        color: #d6d6dc;
     }
 </style>
 </head>
@@ -150,28 +124,23 @@
 
 <div class="titulo-topo">GRUPO VIP</div>
 
-<div class="container">
+<div class="valor">R$ 15,00</div>
 
-    <div class="valor">R$ 15,00</div>
-
-    <div class="area-pix">
-        <div class="texto-pix">
-            Chave PIX: <b>pagamentovip10@gmail.com</b>
-        </div>
+<div class="area-pix">
+    <div class="texto-pix">
+        Chave PIX: <b>pagamentovip10@gmail.com</b>
     </div>
+</div>
 
-    <button onclick="copiarPix()">📋 Copiar chave PIX</button>
+<button onclick="copiarPix()">📋 Copiar chave PIX</button>
+<div id="mensagem-copiado"></div>
 
-    <div id="mensagem-copiado"></div>
+<a href="https://t.me/Adm_vip346" style="text-decoration:none;">
+    <button>📨 Enviar comprovante</button>
+</a>
 
-    <a href="https://t.me/Adm_vip346" style="text-decoration:none;">
-        <button>📨 Enviar comprovante</button>
-    </a>
-
-    <div class="aviso">
-        Após o pagamento, envie o comprovante para liberar o acesso.
-    </div>
-
+<div class="aviso">
+    Após o pagamento, envie o comprovante para liberar o acesso.
 </div>
 
 <script>
