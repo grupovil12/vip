@@ -17,7 +17,7 @@
 
     body {
         margin: 0;
-        min-height: 100vh;
+        height: 100vh;
         font-family: "Poppins", system-ui, Arial, sans-serif;
         color: #fff;
         text-align: center;
@@ -33,9 +33,12 @@
         100% { background-position: 0% 50%; }
     }
 
-    /* TÍTULO */
+    /* TÍTULO MAIS PRA CIMA */
     .titulo-topo {
-        margin-top: 20px;
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
         font-size: 4.2rem;
         font-weight: 900;
         letter-spacing: 3px;
@@ -46,12 +49,21 @@
             0 0 45px rgba(255,215,0,.4);
     }
 
-    /* PREÇO */
+    /* CONTEÚDO CENTRAL */
+    .conteudo {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 16px;
+    }
+
     .valor {
-        margin: 20px 0 25px;
         font-size: 4rem;
         font-weight: 900;
         color: var(--vermelho-claro);
+        margin-bottom: 25px;
         animation: pulse 2.6s infinite ease-in-out;
     }
 
@@ -61,9 +73,9 @@
         100% { transform: scale(1); }
     }
 
-    /* ÁREA PIX */
     .area-pix {
-        margin: 0 16px 22px;
+        width: 100%;
+        max-width: 420px;
         padding: 18px;
         border-radius: 14px;
         background: linear-gradient(
@@ -72,6 +84,7 @@
             rgba(42, 15, 63, 0.25)
         );
         border: 1px solid rgba(224, 27, 60, 0.5);
+        margin-bottom: 20px;
     }
 
     .texto-pix {
@@ -80,10 +93,9 @@
         word-break: break-all;
     }
 
-    /* BOTÕES */
     button {
-        width: calc(100% - 32px);
-        margin: 10px 16px;
+        width: 100%;
+        max-width: 420px;
         padding: 18px;
         border-radius: 14px;
         border: none;
@@ -95,6 +107,7 @@
         background: linear-gradient(135deg, var(--vermelho), var(--vermelho-claro));
         box-shadow: 0 10px 22px rgba(224, 27, 60, 0.4);
         transition: 0.25s;
+        margin-bottom: 12px;
     }
 
     button:hover {
@@ -105,17 +118,17 @@
 
     #mensagem-copiado {
         height: 20px;
-        margin-top: 6px;
         font-size: 0.95rem;
         color: #ffb3c1;
         opacity: 0;
         transition: opacity 0.4s;
+        margin-bottom: 10px;
     }
 
     .aviso {
-        margin: 20px 16px 30px;
         font-size: 0.9rem;
         color: #d6d6dc;
+        max-width: 420px;
     }
 </style>
 </head>
@@ -124,23 +137,28 @@
 
 <div class="titulo-topo">GRUPO VIP</div>
 
-<div class="valor">R$ 15,00</div>
+<div class="conteudo">
 
-<div class="area-pix">
-    <div class="texto-pix">
-        Chave PIX: <b>pagamentovip10@gmail.com</b>
+    <div class="valor">R$ 15,00</div>
+
+    <div class="area-pix">
+        <div class="texto-pix">
+            Chave PIX: <b>pagamentovip10@gmail.com</b>
+        </div>
     </div>
-</div>
 
-<button onclick="copiarPix()">📋 Copiar chave PIX</button>
-<div id="mensagem-copiado"></div>
+    <button onclick="copiarPix()">📋 Copiar chave PIX</button>
 
-<a href="https://t.me/Adm_vip346" style="text-decoration:none;">
-    <button>📨 Enviar comprovante</button>
-</a>
+    <div id="mensagem-copiado"></div>
 
-<div class="aviso">
-    Após o pagamento, envie o comprovante para liberar o acesso.
+    <a href="https://t.me/Adm_vip346" style="text-decoration:none; width:100%; max-width:420px;">
+        <button>📨 Enviar comprovante</button>
+    </a>
+
+    <div class="aviso">
+        Após o pagamento, envie o comprovante para liberar o acesso.
+    </div>
+
 </div>
 
 <script>
