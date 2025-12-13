@@ -7,22 +7,21 @@
 
 <style>
     :root {
-        --vermelho: #b11226;
-        --vermelho-claro: #e01b3c;
-        --roxo: #2a0f3f;
+        --roxo-escuro: #12091f;
+        --roxo: #2d1650;
+        --roxo-claro: #4b2a82;
         --dourado: #FFD700;
-        --bg-1: #09090f;
-        --bg-2: #140b1f;
+        --texto: #e8e6f0;
     }
 
     body {
         margin: 0;
         height: 100vh;
         font-family: "Poppins", system-ui, Arial, sans-serif;
-        color: #fff;
+        color: var(--texto);
         text-align: center;
 
-        background: linear-gradient(-45deg, var(--bg-1), var(--roxo), var(--bg-2));
+        background: linear-gradient(-45deg, var(--roxo-escuro), var(--roxo), #1a0f2e);
         background-size: 300% 300%;
         animation: fundo 18s ease infinite;
     }
@@ -33,20 +32,20 @@
         100% { background-position: 0% 50%; }
     }
 
-    /* TÍTULO MAIS PRA CIMA */
+    /* TÍTULO DOURADO (MAIS PRA CIMA) */
     .titulo-topo {
         position: absolute;
-        top: 30px;
+        top: 28px;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 4.2rem;
+        font-size: 4.4rem;
         font-weight: 900;
         letter-spacing: 3px;
         color: var(--dourado);
         text-shadow:
             0 0 10px rgba(255,215,0,.7),
             0 0 25px rgba(255,215,0,.6),
-            0 0 45px rgba(255,215,0,.4);
+            0 0 45px rgba(255,215,0,.45);
     }
 
     /* CONTEÚDO CENTRAL */
@@ -62,8 +61,8 @@
     .valor {
         font-size: 4rem;
         font-weight: 900;
-        color: var(--vermelho-claro);
-        margin-bottom: 25px;
+        color: var(--dourado);
+        margin-bottom: 24px;
         animation: pulse 2.6s infinite ease-in-out;
     }
 
@@ -80,10 +79,10 @@
         border-radius: 14px;
         background: linear-gradient(
             135deg,
-            rgba(177, 18, 38, 0.22),
-            rgba(42, 15, 63, 0.25)
+            rgba(75, 42, 130, 0.35),
+            rgba(45, 22, 80, 0.35)
         );
-        border: 1px solid rgba(224, 27, 60, 0.5);
+        border: 1px solid rgba(255, 215, 0, 0.25);
         margin-bottom: 20px;
     }
 
@@ -93,6 +92,7 @@
         word-break: break-all;
     }
 
+    /* BOTÕES DOURADOS PREMIUM */
     button {
         width: 100%;
         max-width: 420px;
@@ -104,22 +104,22 @@
         cursor: pointer;
         color: #fff;
 
-        background: linear-gradient(135deg, var(--vermelho), var(--vermelho-claro));
-        box-shadow: 0 10px 22px rgba(224, 27, 60, 0.4);
+        background: linear-gradient(135deg, #FFD700, #e6c200);
+        box-shadow: 0 10px 22px rgba(255,215,0,0.6);
         transition: 0.25s;
         margin-bottom: 12px;
     }
 
     button:hover {
-        transform: translateY(-2px);
-        filter: brightness(1.1);
-        box-shadow: 0 16px 32px rgba(224, 27, 60, 0.6);
+        transform: translateY(-2px) scale(1.02);
+        filter: brightness(1.2);
+        box-shadow: 0 16px 32px rgba(255,215,0,0.8);
     }
 
     #mensagem-copiado {
         height: 20px;
         font-size: 0.95rem;
-        color: #ffb3c1;
+        color: var(--dourado);
         opacity: 0;
         transition: opacity 0.4s;
         margin-bottom: 10px;
@@ -127,7 +127,7 @@
 
     .aviso {
         font-size: 0.9rem;
-        color: #d6d6dc;
+        color: #d6d2e5;
         max-width: 420px;
     }
 </style>
