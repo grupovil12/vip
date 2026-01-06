@@ -32,12 +32,12 @@
         100% { background-position: 0% 50%; }
     }
 
-    /* TÍTULO – ABAIXADO 5% */
+    /* TÍTULO CENTRALIZADO ENTRE TOPO E CONTEÚDO */
     .titulo-topo {
         position: absolute;
-        top: 70px;
+        top: 30%;
         left: 50%;
-        transform: translate(-50%, 10%) scale(1.05);
+        transform: translate(-50%, -50%) scale(1.05);
         font-weight: 900;
         white-space: nowrap;
         letter-spacing: 3px;
@@ -49,7 +49,7 @@
         font-size: clamp(4rem, 14vw, 6rem);
     }
 
-    /* CONTEÚDO */
+    /* CONTEÚDO CENTRAL */
     .conteudo {
         height: 100%;
         display: flex;
@@ -57,7 +57,6 @@
         justify-content: center;
         align-items: center;
         padding: 0 16px;
-        transform: translateY(10%);
     }
 
     .valor {
@@ -176,5 +175,3 @@ function copiarPix() {
 
 </body>
 </html>
-
-
