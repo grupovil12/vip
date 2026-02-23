@@ -5,6 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grupo VIP</title>
 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '2036397443882964');
+fbq('track', 'PageView');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2036397443882964&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
 <style>
     :root {
         --roxo-escuro: #12091f;
@@ -32,7 +52,6 @@
         100% { background-position: 0% 50%; }
     }
 
-    /* TÍTULO – 6% MAIS PARA CIMA */
     .titulo-topo {
         position: absolute;
         top: 24%;
@@ -49,7 +68,6 @@
         font-size: clamp(4rem, 14vw, 6rem);
     }
 
-    /* CONTEÚDO */
     .conteudo {
         height: 100%;
         display: flex;
@@ -151,7 +169,9 @@
 
     <div id="mensagem-copiado"></div>
 
-    <a href="https://t.me/Envie_o_comprovante" style="text-decoration:none; width:100%; max-width:420px;">
+    <a href="https://t.me/Envie_o_comprovante"
+       onclick="fbq('track', 'InitiateCheckout');"
+       style="text-decoration:none; width:100%; max-width:420px;">
         <button>📨 Enviar comprovante</button>
     </a>
 
@@ -164,27 +184,27 @@
 <script>
 function copiarPix() {
     const chave = "pagamentovip10@gmail.com";
+
     navigator.clipboard.writeText(chave).then(() => {
+
+        fbq('track', 'Lead');
+
         const msg = document.getElementById("mensagem-copiado");
         msg.innerText = "Chave copiada com sucesso!";
         msg.style.opacity = 1;
+
         setTimeout(() => msg.style.opacity = 0, 2500);
     });
 }
+
+document.querySelector("a[href='https://t.me/Envie_o_comprovante']")
+.addEventListener("click", function() {
+    fbq('track', 'Purchase', {
+        value: 5.00,
+        currency: 'BRL'
+    });
+});
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
