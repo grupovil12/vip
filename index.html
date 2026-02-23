@@ -170,7 +170,6 @@ src="https://www.facebook.com/tr?id=2036397443882964&ev=PageView&noscript=1"/>
     <div id="mensagem-copiado"></div>
 
     <a href="https://t.me/Envie_o_comprovante"
-       onclick="fbq('track', 'InitiateCheckout');"
        style="text-decoration:none; width:100%; max-width:420px;">
         <button>📨 Enviar comprovante</button>
     </a>
@@ -186,24 +185,12 @@ function copiarPix() {
     const chave = "pagamentovip10@gmail.com";
 
     navigator.clipboard.writeText(chave).then(() => {
-
-        fbq('track', 'Lead');
-
         const msg = document.getElementById("mensagem-copiado");
         msg.innerText = "Chave copiada com sucesso!";
         msg.style.opacity = 1;
-
         setTimeout(() => msg.style.opacity = 0, 2500);
     });
 }
-
-document.querySelector("a[href='https://t.me/Envie_o_comprovante']")
-.addEventListener("click", function() {
-    fbq('track', 'Purchase', {
-        value: 5.00,
-        currency: 'BRL'
-    });
-});
 </script>
 
 </body>
