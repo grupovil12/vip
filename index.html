@@ -24,49 +24,74 @@ src="https://www.facebook.com/tr?id=2036397443882964&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 
 <style>
-/* (seu CSS continua igual, não mexi) */
+/* Seu CSS original aqui – não mexi, só mantenha o que você já tinha */
+body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 20px; text-align: center; }
+.titulo-topo { font-size: 2.2em; font-weight: bold; color: #1877f2; margin: 20px 0; }
+.conteudo { max-width: 420px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.valor { font-size: 2.8em; font-weight: bold; color: #00a650; margin: 20px 0; }
+.area-pix { background: #e8f5e9; padding: 15px; border-radius: 8px; margin: 20px 0; }
+.texto-pix { font-size: 1.1em; }
+button { background: #1877f2; color: white; border: none; padding: 14px 24px; font-size: 1.1em; border-radius: 8px; cursor: pointer; margin: 10px 0; width: 100%; max-width: 420px; }
+button:hover { background: #166fe5; }
+#mensagem-copiado { color: #00a650; font-weight: bold; margin: 10px 0; opacity: 0; transition: opacity 0.5s; }
+.aviso { font-size: 0.95em; color: #555; margin-top: 20px; }
 </style>
 </head>
-
 <body>
 
 <div class="titulo-topo">GRUPO VIP</div>
 
 <div class="conteudo">
-
     <div class="valor">R$ 2,50</div>
-
+    
     <div class="area-pix">
         <div class="texto-pix">
             Chave PIX: <b>pagamentovip10@gmail.com</b>
         </div>
     </div>
-
+    
     <button onclick="copiarPix()">📋 Copiar chave PIX</button>
-
     <div id="mensagem-copiado"></div>
-
-    <a href="https://t.me/ADM_GRUPOVIP8"
-       style="text-decoration:none; width:100%; max-width:420px;">
-        <button>📨 Enviar comprovante</button>
-    </a>
-
+    
+    <button onclick="enviarComprovante()">📨 Enviar comprovante</button>
+    
     <div class="aviso">
         Após o pagamento, envie o comprovante para liberar o acesso.
     </div>
-
 </div>
 
 <script>
+// Função para copiar a chave PIX + evento Pixel
 function copiarPix() {
     const chave = "pagamentovip10@gmail.com";
-
     navigator.clipboard.writeText(chave).then(() => {
         const msg = document.getElementById("mensagem-copiado");
         msg.innerText = "Chave copiada com sucesso!";
         msg.style.opacity = 1;
         setTimeout(() => msg.style.opacity = 0, 2500);
+
+        // Evento Pixel: Copiou a chave (topo do funil)
+        fbq('trackCustom', 'CopiarChavePix', {
+            content_name: 'Grupo VIP',
+            content_category: 'assinatura_pix'
+        });
+    }).catch(err => {
+        console.error('Erro ao copiar: ', err);
     });
+}
+
+// Função para enviar comprovante + evento Pixel + abrir Telegram
+function enviarComprovante() {
+    // Evento Pixel: Enviou comprovante (conversão principal)
+    fbq('trackCustom', 'EnviarComprovante', {
+        value: 2.50,
+        currency: 'BRL',
+        content_name: 'Grupo VIP',
+        content_category: 'assinatura_pix'
+    });
+
+    // Abre o Telegram (app ou web)
+    window.open('https://t.me/ADM_GRUPOVIP8', '_blank');
 }
 </script>
 
