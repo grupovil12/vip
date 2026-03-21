@@ -180,14 +180,8 @@ function enviarComprovante() {
     window.open('https://t.me/ADM_GRUPOVIP8', '_blank');
 }
 
-// Evento ViewContent disparado ao carregar a página (ideal para landing de oferta)
-fbq('track', 'ViewContent', {
-    content_name: 'Grupo VIP - Assinatura PIX',
-    content_category: 'assinatura_mensal',
-    content_type: 'product',
-    value: 15.00,
-    currency: 'BRL'
-});
+// Evento ViewContent simples, disparado ao carregar a página
+fbq('track', 'ViewContent');
 </script>
 </body>
 </html>
