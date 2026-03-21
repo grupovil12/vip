@@ -31,7 +31,6 @@ src="https://www.facebook.com/tr?id=2036397443882964&ev=PageView&noscript=1"
     --dourado: #FFD700;
     --texto: #e8e6f0;
 }
-
 body {
     margin: 0;
     height: 100vh;
@@ -43,13 +42,11 @@ body {
     animation: fundo 18s ease infinite;
     overflow: hidden;
 }
-
 @keyframes fundo {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
 .titulo-topo {
     position: absolute;
     top: 24%;
@@ -65,7 +62,6 @@ body {
         0 0 45px rgba(255,215,0,.45);
     font-size: clamp(4rem, 14vw, 6rem);
 }
-
 .conteudo {
     height: 100%;
     display: flex;
@@ -74,7 +70,6 @@ body {
     align-items: center;
     padding: 0 16px;
 }
-
 .valor {
     font-size: 4rem;
     font-weight: 900;
@@ -82,13 +77,11 @@ body {
     margin-bottom: 24px;
     animation: pulse 2.6s infinite ease-in-out;
 }
-
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.15); }
     100% { transform: scale(1); }
 }
-
 .area-pix {
     width: 100%;
     max-width: 420px;
@@ -102,13 +95,11 @@ body {
     border: 1px solid rgba(255, 215, 0, 0.25);
     margin-bottom: 20px;
 }
-
 .texto-pix {
     font-size: 1.1rem;
     font-weight: 600;
     word-break: break-all;
 }
-
 button {
     width: 100%;
     max-width: 420px;
@@ -125,13 +116,11 @@ button {
     transition: 0.25s;
     margin-bottom: 12px;
 }
-
 button:hover {
     transform: translateY(-2px) scale(1.02);
     filter: brightness(1.2);
     box-shadow: 0 16px 32px rgba(255,215,0,0.8);
 }
-
 #mensagem-copiado {
     height: 20px;
     font-size: 0.95rem;
@@ -140,7 +129,6 @@ button:hover {
     transition: opacity 0.4s;
     margin-bottom: 10px;
 }
-
 .aviso {
     font-size: 0.9rem;
     color: #d6d2e5;
@@ -148,33 +136,23 @@ button:hover {
 }
 </style>
 </head>
-
 <body>
-
 <div class="titulo-topo">GRUPO VIP</div>
-
 <div class="conteudo">
-
     <!-- SEU VALOR ORIGINAL -->
     <div class="valor">R$ 15,00</div>
-
     <div class="area-pix">
         <div class="texto-pix">
             Chave PIX: <b>pagamentovip10@gmail.com</b>
         </div>
     </div>
-
     <button onclick="copiarPix()">📋 Copiar chave PIX</button>
-
     <div id="mensagem-copiado"></div>
-
     <!-- BOTÃO COM SUA FUNÇÃO ORIGINAL -->
     <button onclick="enviarComprovante()">📨 Enviar comprovante</button>
-
     <div class="aviso">
         Após o pagamento, envie o comprovante para liberar o acesso.
     </div>
-
 </div>
 
 <script>
@@ -185,7 +163,6 @@ function copiarPix() {
         msg.innerText = "Chave copiada com sucesso!";
         msg.style.opacity = 1;
         setTimeout(() => msg.style.opacity = 0, 2500);
-
         fbq('trackCustom', 'CopiarChavePix', {
             content_name: 'Grupo VIP',
             content_category: 'assinatura_pix'
@@ -200,10 +177,17 @@ function enviarComprovante() {
         content_name: 'Grupo VIP',
         content_category: 'assinatura_pix'
     });
-
     window.open('https://t.me/ADM_GRUPOVIP8', '_blank');
 }
-</script>
 
+// Evento ViewContent disparado ao carregar a página (ideal para landing de oferta)
+fbq('track', 'ViewContent', {
+    content_name: 'Grupo VIP - Assinatura PIX',
+    content_category: 'assinatura_mensal',
+    content_type: 'product',
+    value: 15.00,
+    currency: 'BRL'
+});
+</script>
 </body>
 </html>
