@@ -139,7 +139,6 @@ button:hover {
 <body>
 <div class="titulo-topo">GRUPO VIP</div>
 <div class="conteudo">
-    <!-- SEU VALOR ORIGINAL -->
     <div class="valor">R$ 15,00</div>
     <div class="area-pix">
         <div class="texto-pix">
@@ -148,8 +147,9 @@ button:hover {
     </div>
     <button onclick="copiarPix()">📋 Copiar chave PIX</button>
     <div id="mensagem-copiado"></div>
-    <!-- BOTÃO COM SUA FUNÇÃO ORIGINAL -->
+
     <button onclick="enviarComprovante()">📨 Enviar comprovante</button>
+
     <div class="aviso">
         Após o pagamento, envie o comprovante para liberar o acesso.
     </div>
@@ -177,7 +177,8 @@ function enviarComprovante() {
         content_name: 'Grupo VIP',
         content_category: 'assinatura_pix'
     });
-    window.open('t.me/Assineaqui78', '_blank');
+    
+    window.open('https://t.me/Assineaqui78', '_blank');
 }
 
 // Evento ViewContent simples, disparado ao carregar a página
