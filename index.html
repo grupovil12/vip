@@ -1,188 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grupo VIP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clique para Continuar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Impact:wght@400;700&display=swap');
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2036397443882964');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2036397443882964&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a0000, #330000, #660000);
+            overflow: hidden;
+        }
 
-<style>
-:root {
-    --roxo-escuro: #12091f;
-    --roxo: #2d1650;
-    --roxo-claro: #4b2a82;
-    --dourado: #FFD700;
-    --texto: #e8e6f0;
-}
-body {
-    margin: 0;
-    height: 100vh;
-    font-family: "Poppins", system-ui, Arial, sans-serif;
-    color: var(--texto);
-    text-align: center;
-    background: linear-gradient(-45deg, var(--roxo-escuro), var(--roxo), #1a0f2e);
-    background-size: 300% 300%;
-    animation: fundo 18s ease infinite;
-    overflow: hidden;
-}
-@keyframes fundo {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-.titulo-topo {
-    position: absolute;
-    top: 24%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.05);
-    font-weight: 900;
-    white-space: nowrap;
-    letter-spacing: 3px;
-    color: var(--dourado);
-    text-shadow:
-        0 0 10px rgba(255,215,0,.7),
-        0 0 25px rgba(255,215,0,.6),
-        0 0 45px rgba(255,215,0,.45);
-    font-size: clamp(4rem, 14vw, 6rem);
-}
-.conteudo {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 16px;
-}
-.valor {
-    font-size: 4rem;
-    font-weight: 900;
-    color: var(--dourado);
-    margin-bottom: 24px;
-    animation: pulse 2.6s infinite ease-in-out;
-}
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
-}
-.area-pix {
-    width: 100%;
-    max-width: 420px;
-    padding: 18px;
-    border-radius: 14px;
-    background: linear-gradient(
-        135deg,
-        rgba(75, 42, 130, 0.35),
-        rgba(45, 22, 80, 0.35)
-    );
-    border: 1px solid rgba(255, 215, 0, 0.25);
-    margin-bottom: 20px;
-}
-.texto-pix {
-    font-size: 1.1rem;
-    font-weight: 600;
-    word-break: break-all;
-}
-button {
-    width: 100%;
-    max-width: 420px;
-    padding: 18px;
-    border-radius: 14px;
-    border: none;
-    font-size: 1.2rem;
-    font-weight: 700;
-    cursor: pointer;
-    color: #fff;
-    background: linear-gradient(135deg, #FFD700, #e6c200);
-    box-shadow: 0 10px 22px rgba(255,215,0,0.6);
-    text-shadow: 1px 1px 2px black, -1px -1px 2px black;
-    transition: 0.25s;
-    margin-bottom: 12px;
-}
-button:hover {
-    transform: translateY(-2px) scale(1.02);
-    filter: brightness(1.2);
-    box-shadow: 0 16px 32px rgba(255,215,0,0.8);
-}
-#mensagem-copiado {
-    height: 20px;
-    font-size: 0.95rem;
-    color: var(--dourado);
-    opacity: 0;
-    transition: opacity 0.4s;
-    margin-bottom: 10px;
-}
-.aviso {
-    font-size: 0.9rem;
-    color: #d6d2e5;
-    max-width: 420px;
-}
-</style>
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 140px;
+            font-size: 2.65rem;
+            font-family: 'Impact', sans-serif;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(90deg, #FF2D00, #FF6B00, #FF00B8, #C800FF);
+            border: none;
+            border-radius: 9999px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 0 0 90px #FF00FF,
+                        0 0 160px #FF4500,
+                        0 0 220px #FF1493,
+                        inset 0 10px 30px rgba(255,255,255,0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            line-height: 1.05;
+            animation: pulse 2.4s infinite ease-in-out; /* Pulsação mais devagar */
+            white-space: nowrap;
+            -webkit-text-stroke: 3px #000000; /* Linha fina preta em volta das letras */
+            text-stroke: 3px #000000;
+            paint-order: stroke fill;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+        }
+
+        /* Pulsação mais lenta e suave */
+        @keyframes pulse {
+            0%   { transform: scale(1); }
+            50%  { transform: scale(1.085); }
+            100% { transform: scale(1); }
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: radial-gradient(circle, rgba(255,255,255,0.55) 20%, transparent 70%);
+            animation: neonGlow 2.5s linear infinite;
+            opacity: 0.45;
+        }
+
+        @keyframes neonGlow {
+            0%   { transform: translate(20%, 20%); }
+            50%  { transform: translate(-20%, -20%); }
+            100% { transform: translate(20%, 20%); }
+        }
+    </style>
 </head>
 <body>
-<div class="titulo-topo">GRUPO VIP</div>
-<div class="conteudo">
-    <div class="valor">R$ 15,00</div>
-    <div class="area-pix">
-        <div class="texto-pix">
-            Chave PIX: <b>pagamentovip10@gmail.com</b>
-        </div>
-    </div>
-    <button onclick="copiarPix()">📋 Copiar chave PIX</button>
-    <div id="mensagem-copiado"></div>
 
-    <button onclick="enviarComprovante()">📨 Enviar comprovante</button>
+    <a href="https://www.profitablecpmratenetwork.com/mrg0qha8?key=04ed8cba32c0ce9115375e74cdb12bf1" class="btn" target="_blank">
+        CLIQUE AQUI<br>PARA CONTINUAR
+    </a>
 
-    <div class="aviso">
-        Após o pagamento, envie o comprovante para liberar o acesso.
-    </div>
-</div>
-
-<script>
-function copiarPix() {
-    const chave = "pagamentovip10@gmail.com";
-    navigator.clipboard.writeText(chave).then(() => {
-        const msg = document.getElementById("mensagem-copiado");
-        msg.innerText = "Chave copiada com sucesso!";
-        msg.style.opacity = 1;
-        setTimeout(() => msg.style.opacity = 0, 2500);
-        fbq('trackCustom', 'CopiarChavePix', {
-            content_name: 'Grupo VIP',
-            content_category: 'assinatura_pix'
+    <script>
+        const button = document.querySelector('.btn');
+        button.addEventListener('click', function(e) {
+            for(let i = 0; i < 80; i++) {
+                const spark = document.createElement('div');
+                spark.style.position = 'fixed';
+                spark.style.fontSize = '2.3rem';
+                spark.style.left = (e.clientX + (Math.random() - 0.5) * 160) + 'px';
+                spark.style.top = (e.clientY + (Math.random() - 0.5) * 110) + 'px';
+                spark.style.pointerEvents = 'none';
+                spark.style.zIndex = '9999';
+                spark.textContent = ['🔥','💥','❤️‍🔥','🌟'][Math.floor(Math.random()*4)];
+                document.body.appendChild(spark);
+                setTimeout(() => spark.remove(), 1600);
+            }
         });
-    });
-}
-
-function enviarComprovante() {
-    fbq('trackCustom', 'EnviarComprovante', {
-        value: 2.50,
-        currency: 'BRL',
-        content_name: 'Grupo VIP',
-        content_category: 'assinatura_pix'
-    });
-    
-    window.open('https://t.me/Assineaqui78', '_blank');
-}
-
-// Evento ViewContent simples, disparado ao carregar a página
-fbq('track', 'ViewContent');
-</script>
+    </script>
 </body>
 </html>
