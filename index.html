@@ -13,6 +13,7 @@
             justify-content: center;
             background: linear-gradient(135deg, #1a0000, #330000, #660000);
             overflow: hidden;
+            position: relative; /* Adicionado para controlar o selo */
         }
         .btn {
             display: inline-flex;
@@ -68,6 +69,19 @@
             50% { transform: translate(-20%, -20%); }
             100% { transform: translate(20%, 20%); }
         }
+
+        /* --- CÓDIGO PARA OCULTAR O DISTINTIVO DO CLICKY --- */
+        .clicky-badge-link {
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 1px !important;
+            height: 1px !important;
+            opacity: 0.001 !important;
+            z-index: -9999 !important;
+            pointer-events: none !important;
+            overflow: hidden !important;
+        }
     </style>
 </head>
 <body>
@@ -93,7 +107,7 @@
         });
     </script>
 
-    <a title="Google Analytics Alternative" href="https://clicky.com/101507331"><img alt="Clicky" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+    <a title="Google Analytics Alternative" href="https://clicky.com/101507331" class="clicky-badge-link"><img alt="Clicky" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
     <script async data-id="101507331" src="//static.getclicky.com/js"></script>
 </body>
 </html>
