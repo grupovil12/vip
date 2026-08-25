@@ -1,191 +1,612 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grupo VIP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clique para Continuar</title>
+  
+    <meta property="og:title" content="VIP - Conteúdo Exclusivo">
+    <meta property="og:description" content="Clique para continuar e acesse o conteúdo VIP agora.">
+    <meta property="og:type" content="website">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2036397443882964');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2036397443882964&ev=PageView&noscript=1"
-/></noscript>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-<style>
-:root {
-    --roxo-escuro: #12091f;
-    --roxo: #2d1650;
-    --roxo-claro: #4b2a82;
-    --dourado: #FFD700;
-    --texto: #e8e6f0;
-}
-body {
-    margin: 0;
-    height: 100vh;
-    font-family: "Poppins", system-ui, Arial, sans-serif;
-    color: var(--texto);
-    text-align: center;
-    background: linear-gradient(-45deg, var(--roxo-escuro), var(--roxo), #1a0f2e);
-    background-size: 300% 300%;
-    animation: fundo 18s ease infinite;
-    overflow: hidden;
-}
-@keyframes fundo {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+        /* ========== PRIMEIRA PÁGINA (ORIGINAL) ========== */
+        .hero-screen {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a0000, #330000, #660000);
+            position: relative;
+            overflow: hidden;
+        }
 
-.titulo-topo {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.05);
-    font-weight: 900;
-    white-space: nowrap;
-    letter-spacing: 3px;
-    color: var(--dourado);
-    text-shadow: 0 0 10px rgba(255,215,0,.7), 0 0 25px rgba(255,215,0,.6), 0 0 45px rgba(255,215,0,.45);
-    font-size: clamp(3.8rem, 13vw, 5.8rem);
-}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 140px;
+            font-size: 2.65rem;
+            font-family: 'Impact', sans-serif;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(90deg, #FF2D00, #FF6B00, #FF00B8, #C800FF);
+            border: none;
+            border-radius: 9999px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            box-shadow: 0 0 90px #FF00FF,
+                        0 0 160px #FF4500,
+                        0 0 220px #FF1493,
+                        inset 0 10px 30px rgba(255,255,255,0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            line-height: 1.05;
+            animation: pulse 2.4s infinite ease-in-out;
+            white-space: nowrap;
+            -webkit-text-stroke: 3px #000000;
+            text-stroke: 3px #000000;
+            paint-order: stroke fill;
+            cursor: pointer;
+        }
+        .btn:hover {
+            transform: scale(1.08);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.085); }
+            100% { transform: scale(1); }
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -60%;
+            width: 220%;
+            height: 220%;
+            background: radial-gradient(circle, rgba(255,255,255,0.55) 20%, transparent 70%);
+            animation: neonGlow 2.5s linear infinite;
+            opacity: 0.45;
+            pointer-events: none;
+        }
+        @keyframes neonGlow {
+            0% { transform: translate(20%, 20%); }
+            50% { transform: translate(-20%, -20%); }
+            100% { transform: translate(20%, 20%); }
+        }
 
-.conteudo {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 16px;
-    margin-top: 40px;
-}
+        .clicky-badge-link {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 10;
+        }
 
-.valor {
-    font-size: 5.4rem;
-    font-weight: 900;
-    color: var(--dourado);
-    line-height: 1;
-    margin-bottom: 12px;
-    animation: pulse 2s infinite ease-in-out;
-}
-.valor small {
-    font-size: 0.4em;
-    vertical-align: super;
-}
+        /* ========== SEGUNDA PÁGINA - VENDAS ========== */
+        .sales-page {
+            background: #0d0d0d;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.09); }
-    100% { transform: scale(1); }
-}
+        .sales-hero {
+            background: linear-gradient(180deg, #1a0a00 0%, #0d0d0d 100%);
+            padding: 80px 20px 60px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
 
-.area-pix {
-    width: 100%;
-    max-width: 420px;
-    padding: 18px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, rgba(75,42,130,0.35), rgba(45,22,80,0.35));
-    border: 1px solid rgba(255,215,0,0.25);
-    margin: 20px 0;
-}
+        .sales-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-.texto-pix {
-    font-size: 1.12rem;
-    font-weight: 600;
-}
+        .sales-hero h1 span {
+            background: linear-gradient(90deg, #FF6B00, #FF2D00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-button {
-    width: 100%;
-    max-width: 420px;
-    padding: 18px;
-    border-radius: 14px;
-    border: none;
-    font-size: 1.25rem;
-    font-weight: 700;
-    cursor: pointer;
-    color: #000;
-    background: linear-gradient(135deg, #FFD700, #e6c200);
-    box-shadow: 0 10px 22px rgba(255,215,0,0.6);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    transition: 0.25s;
-    margin-bottom: 12px;
-}
+        .sales-hero .subtitle {
+            font-size: 1.25rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
 
-button:hover {
-    transform: translateY(-2px) scale(1.02);
-    filter: brightness(1.15);
-}
+        .badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #FF2D00, #FF6B00);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-#mensagem-copiado {
-    height: 22px;
-    font-size: 0.95rem;
-    color: var(--dourado);
-    opacity: 0;
-    transition: opacity 0.4s;
-}
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.aviso {
-    font-size: 0.9rem;
-    color: #d6d2e5;
-    max-width: 420px;
-}
-</style>
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .section h2 {
+            font-size: 1.9rem;
+            color: #fff;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #FF2D00, #FF6B00);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+            color: #ccc;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #1a1000, #2a1500);
+            border: 1px solid #FF6B00;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: #FF6B00;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: #151515;
+            border: 1px solid #333;
+            border-radius: 14px;
+            padding: 28px 22px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: #FF6B00;
+        }
+
+        .benefit-card .icon {
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h4 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            font-size: 0.98rem;
+            color: #aaa;
+            margin: 0;
+        }
+
+        .testimonial {
+            background: #151515;
+            border-left: 4px solid #FF6B00;
+            border-radius: 0 12px 12px 0;
+            padding: 25px 30px;
+            margin: 25px 0;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: #ddd;
+            margin-bottom: 12px;
+        }
+
+        .testimonial .author {
+            font-weight: 700;
+            color: #FF6B00;
+            font-size: 0.95rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #1a0500, #2a0a00);
+            border: 2px solid #FF2D00;
+            border-radius: 20px;
+            padding: 50px 30px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 0 40px rgba(255, 45, 0, 0.25);
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .cta-box h2::after {
+            display: none;
+        }
+
+        .cta-box p {
+            font-size: 1.15rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #FF6B00;
+            margin: 20px 0 5px;
+        }
+
+        .price small {
+            font-size: 1.1rem;
+            color: #888;
+            text-decoration: line-through;
+            margin-right: 12px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #FF2D00, #FF6B00);
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 15px;
+            box-shadow: 0 8px 30px rgba(255, 45, 0, 0.4);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(255, 45, 0, 0.55);
+        }
+
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: #aaa;
+        }
+
+        .telegram-section {
+            background: #0a0a0a;
+            padding: 70px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .telegram-section h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .telegram-section p {
+            color: #bbb;
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto 30px;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #0088cc;
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.25s;
+        }
+
+        .telegram-btn:hover {
+            background: #006699;
+            transform: translateY(-3px);
+        }
+
+        .telegram-handle {
+            font-size: 1.4rem;
+            color: #0088cc;
+            font-weight: 700;
+            margin-top: 18px;
+        }
+
+        .footer {
+            background: #050505;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        @media (max-width: 600px) {
+            .sales-hero h1 {
+                font-size: 1.8rem;
+            }
+            .price {
+                font-size: 2.3rem;
+            }
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 16px 30px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div class="titulo-topo">GRUPO VIP</div>
+    <!-- ==================== PRIMEIRA PÁGINA (ORIGINAL) ==================== -->
+    <section class="hero-screen">
+        <!-- Link corrected for stellular (with two Ls) -->
+        <a href="https://www.profitableratecpmnetwork.com/fh3jyr2p2?key=cdc1942c3db8c19efabe0e9ace8969d4" class="btn" target="_blank">
+            CLIQUE AQUI<br>PARA CONTINUAR
+        </a>
 
-<div class="conteudo">
-    <div class="valor">R$ 5,00</div>
+        <script>
+            const button = document.querySelector('.btn');
+            button.addEventListener('click', function(e) {
+                for(let i = 0; i < 80; i++) {
+                    const spark = document.createElement('div');
+                    spark.style.position = 'fixed';
+                    spark.style.fontSize = '2.3rem';
+                    spark.style.left = (e.clientX + (Math.random() - 0.5) * 160) + 'px';
+                    spark.style.top = (e.clientY + (Math.random() - 0.5) * 110) + 'px';
+                    spark.style.pointerEvents = 'none';
+                    spark.style.zIndex = '9999';
+                    spark.textContent = ['🔥','💥','❤️‍🔥','🌟'][Math.floor(Math.random()*4)];
+                    document.body.appendChild(spark);
+                    setTimeout(() => spark.remove(), 1600);
+                }
+            });
+        </script>
 
-    <div class="area-pix">
-        <div class="texto-pix">
-            Chave PIX: <b>pagamentovip10@gmail.com</b>
+        <!-- Clicky tracking tag -->
+        <a title="Google Analytics Alternative" href="https://clicky.com/101507331" class="clicky-badge-link"></a>
+        <script async data-id="101507331" src="https://static.getclicky.com/js"></script>
+    </section>
+
+    <!-- ==================== SEGUNDA PÁGINA - PÁGINA DE VENDAS ==================== -->
+    <div class="sales-page">
+
+        <!-- Hero da oferta -->
+        <div class="sales-hero">
+            <div class="container">
+                <div class="badge">⚡ Oferta Limitada — Estoque Baixo</div>
+                <h1>Descubra o Segredo dos <span>Atletas de Elite</span> Para Ganhar Massa Muscular 3x Mais Rápido</h1>
+                <p class="subtitle">
+                    O suplemento que está transformando físicos comuns em máquinas de hipertrofia. 
+                    Resultados reais em semanas, não em meses.
+                </p>
+            </div>
         </div>
+
+        <!-- O Problema -->
+        <section class="section">
+            <div class="container">
+                <h2>Você Treina Pesado... Mas o Espelho Não Mente</h2>
+                <p>
+                    Você passa horas na academia. Segue a dieta. Dorme bem. E mesmo assim, o progresso é lento. 
+                    Os músculos não crescem como deveriam. A força estagna. A motivação cai.
+                </p>
+                <p>
+                    A verdade é dura: <strong>treino e dieta sozinhos não são suficientes</strong> quando o corpo 
+                    não tem os nutrientes certos na quantidade e no timing ideais para maximizar a síntese proteica 
+                    e a recuperação.
+                </p>
+                <p>
+                    Enquanto isso, os caras que você vê no Instagram com físico absurdo estão usando uma vantagem 
+                    que a maioria ignora — um protocolo de suplementação avançado baseado em ciência real.
+                </p>
+            </div>
+        </section>
+
+        <!-- A Solução -->
+        <section class="section">
+            <div class="container">
+                <h2>Apresentamos o HYPERMASS X7</h2>
+                <p>
+                    O HYPERMASS X7 não é mais um whey qualquer. É uma fórmula completa de hipertrofia desenvolvida 
+                    em parceria com nutricionistas esportivos e atletas de alto rendimento.
+                </p>
+                <p>
+                    Cada dose entrega uma combinação precisa de:
+                </p>
+
+                <div class="benefits">
+                    <div class="benefit-card">
+                        <div class="icon">💪</div>
+                        <h4>Proteína Isolada + Hidrolisada</h4>
+                        <p>Absorção ultrarrápida + liberação prolongada. Alimenta seus músculos por horas.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon">⚡</div>
+                        <h4>Creatina Monohidratada Pura</h4>
+                        <p>5g por dose. Aumenta força, volume celular e performance nos treinos pesados.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon">🔥</div>
+                        <h4>Complexo de Aminoácidos BCAA + EAA</h4>
+                        <p>Todos os aminoácidos essenciais na proporção ideal para maximizar a construção muscular.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon">🛡️</div>
+                        <h4>Adaptógenos + Vitaminas</h4>
+                        <p>Reduz o cortisol, melhora a recuperação e protege seu sistema imunológico.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>Por que o HYPERMASS X7 é diferente?</h3>
+                    <p style="margin:0; color:#ddd;">
+                        Enquanto a maioria dos suplementos foca em apenas um macronutriente, nossa fórmula 
+                        foi criada para atacar os 4 pilares da hipertrofia: síntese proteica, volume celular, 
+                        recuperação hormonal e performance. Resultado? Você ganha massa magra de verdade, 
+                        sem o inchaço de água que some em poucos dias.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resultados -->
+        <section class="section">
+            <div class="container">
+                <h2>O Que Nossos Clientes Estão Dizendo</h2>
+
+                <div class="testimonial">
+                    <p>"Em 6 semanas com o HYPERMASS X7 eu coloquei 4,2kg de massa magra e aumentei 15kg no supino. 
+                    Nunca vi um produto entregar resultado tão rápido. Já comprei o segundo pote."</p>
+                    <div class="author">— Rafael M., 28 anos · SP</div>
+                </div>
+
+                <div class="testimonial">
+                    <p>"Eu era cético. Já gastei dinheiro com dezenas de marcas. Esse foi o único que realmente 
+                    fez diferença na recuperação. Meus treinos ficaram muito mais intensos."</p>
+                    <div class="author">— Camila T., 31 anos · RJ</div>
+                </div>
+
+                <div class="testimonial">
+                    <p>"Meu coach recomendou. Em 2 meses meu físico mudou completamente. Braços, costas e pernas 
+                    cresceram visivelmente. Valeu cada centavo."</p>
+                    <div class="author">— Lucas Ferreira, 24 anos · BH</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Principal -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Garanta Seu HYPERMASS X7 Agora</h2>
+                    <p>
+                        Estoque limitado. A demanda está alta e as unidades estão acabando rápido. 
+                        Não perca a chance de acelerar seus resultados.
+                    </p>
+                    <div class="price">
+                        <small>R$ 297</small> R$ 147
+                    </div>
+                    <p style="font-size:0.95rem; color:#888; margin-bottom:5px;">ou 3x de R$ 49 sem juros</p>
+                    
+                    <a href="https://t.me/HyperMassOficial" class="cta-button" target="_blank">
+                        QUERO MEU HYPERMASS X7 AGORA
+                    </a>
+
+                    <div class="guarantee">
+                        <span>🔒</span>
+                        <span>Compra 100% segura · Garantia de 30 dias ou seu dinheiro de volta</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como funciona -->
+        <section class="section">
+            <div class="container">
+                <h2>Como Usar Para Máximos Resultados</h2>
+                <p>
+                    <strong>1. Tome 1 scoop</strong> com 250-300ml de água ou leite logo após o treino.
+                </p>
+                <p>
+                    <strong>2. Nos dias de descanso</strong>, tome pela manhã ou entre as refeições para manter 
+                    o corpo em anabolismo constante.
+                </p>
+                <p>
+                    <strong>3. Combine com treino de força</strong> e uma alimentação rica em proteínas e carboidratos 
+                    de qualidade. O HYPERMASS X7 potencializa o que você já faz.
+                </p>
+                <p>
+                    A maioria dos usuários começa a notar diferença na força e na recuperação já na primeira semana. 
+                    Os resultados visuais de hipertrofia costumam aparecer entre 3 e 6 semanas de uso consistente.
+                </p>
+            </div>
+        </section>
+
+        <!-- Telegram / Contato final -->
+        <div class="telegram-section">
+            <div class="container">
+                <h2>Ficou Com Alguma Dúvida?</h2>
+                <p>
+                    Fale direto com a nossa equipe de suporte. Estamos prontos para te ajudar a escolher 
+                    o melhor plano e tirar qualquer dúvida sobre o HYPERMASS X7.
+                </p>
+                <a href="https://t.me/HyperMassOficial" class="telegram-btn" target="_blank">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.12.098.153.23.169.323.016.093.036.306.02.472z"/>
+                    </svg>
+                    Falar no Telegram
+                </a>
+                <div class="telegram-handle">@HyperMassOficial</div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 HyperMass Nutrition · Todos os direitos reservados</p>
+            <p style="margin-top:8px;">Este produto não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença. Consulte um médico antes de iniciar qualquer suplementação.</p>
+        </footer>
     </div>
 
-    <button onclick="copiarPix()">📋 Copiar chave PIX</button>
-    <div id="mensagem-copiado"></div>
-    
-    <button onclick="enviarComprovante()">📨 Enviar comprovante</button>
-    
-    <div class="aviso">
-        Após o pagamento, envie o comprovante para liberar o acesso imediatamente.
-    </div>
-</div>
-
-<script>
-function copiarPix() {
-    const chave = "pagamentovip10@gmail.com";
-    navigator.clipboard.writeText(chave).then(() => {
-        const msg = document.getElementById("mensagem-copiado");
-        msg.innerText = "✅ Chave copiada com sucesso!";
-        msg.style.opacity = 1;
-        setTimeout(() => msg.style.opacity = 0, 2500);
-        fbq('trackCustom', 'CopiarChavePix', { content_name: 'Grupo VIP' });
-    });
-}
-
-function enviarComprovante() {
-    fbq('trackCustom', 'EnviarComprovante', {
-        value: 4.99,
-        currency: 'BRL',
-        content_name: 'Grupo VIP'
-    });
-    window.open('https://t.me/Subscribehere6', '_blank');
-}
-
-fbq('track', 'ViewContent');
-</script>
 </body>
 </html>
